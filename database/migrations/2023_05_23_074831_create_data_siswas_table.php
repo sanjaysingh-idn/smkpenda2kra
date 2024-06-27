@@ -17,7 +17,7 @@ class CreateDataSiswasTable extends Migration
             $table->id();
             $table->longText('content');
             $table->string('author');
-            $table->string('grafik');
+            $table->string('grafik')->nullable();
             $table->timestamps();
         });
     }
