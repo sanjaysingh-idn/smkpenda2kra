@@ -1,0 +1,52 @@
+.bg-egyptian-blue {
+    background-color: #22318A;
+}
+
+.text-egyptian-blue {
+    background-color: #22318A;
+}
+
+.bg-citrine {
+    background-color: #F3DE2E;
+}
+
+.text-citrine {
+    color: #F3DE2E;
+}
+
+.bg-erie-black {
+    background-color: #1b1b1b;
+}
+
+.text-erie-black {
+    background-color: #1b1b1b;
+}
+
+.navbar-nav li a {
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar-nav li a:hover {
+    color: #F3DE2E;
+}
+
+.nav-link.dropdown-toggle:hover {
+    color: #F3DE2E;
+}
+
+.dropdown-menu {
+    background-color: #22318A;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    opacity: 0.8;
+}
+
+.dropdown-menu a:hover {
+    background-color: #F3DE2E;
+}
+
+.dropdown-menu li a:hover {
+    color: #22318A;
+}
