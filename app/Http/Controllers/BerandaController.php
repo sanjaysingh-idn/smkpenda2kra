@@ -131,8 +131,6 @@ class BerandaController extends Controller
     public function show_pendaftaran()
     {
         if (Auth::check()) {
-            dd("Auth check passed"); // Debug Auth::check()
-
             $agama = ['Islam', 'Kristen', 'Katolik', 'Hindu', 'Buddha', 'Konghucu'];
             $penghasilan_ortu = ['Rp. 1.000.000 - Rp. 2.000.000', 'Rp. 2.000.000 - Rp. 3.000.000', 'Rp. 3.000.000 - Rp. 4.000.000', 'Rp. 4.000.000 - Rp. 5.000.000', '> Rp. 5.000.000'];
 
