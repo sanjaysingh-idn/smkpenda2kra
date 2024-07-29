@@ -16,6 +16,7 @@ use App\Models\ProgramKeahlian;
 use App\Models\FasilitasSingkat;
 use App\Models\SyaratPendaftaran;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use App\Models\SambutanKepalaSekolah;
 
@@ -130,31 +131,57 @@ class BerandaController extends Controller
     public function show_pendaftaran()
     {
         if (Auth::check()) {
+            dd("Auth check passed"); // Debug Auth::check()
+
             $agama = ['Islam', 'Kristen', 'Katolik', 'Hindu', 'Buddha', 'Konghucu'];
             $penghasilan_ortu = ['Rp. 1.000.000 - Rp. 2.000.000', 'Rp. 2.000.000 - Rp. 3.000.000', 'Rp. 3.000.000 - Rp. 4.000.000', 'Rp. 4.000.000 - Rp. 5.000.000', '> Rp. 5.000.000'];
+
+            try {
+                $profils = Profil::all();
+                $programs = ProgramKeahlian::all();
+                $sambutan = SambutanKepalaSekolah::firstOrFail();
+                $syarat = SyaratPendaftaran::firstOrFail();
+                $fasilitas = FasilitasSingkat::all();
+                $brosur = Brosur::all();
+            } catch (\Exception $e) {
+                Log::error('Error fetching data: ' . $e->getMessage());
+                dd('Error fetching data: ' . $e->getMessage());
+            }
 
             return view('home.pendaftaran', [
                 'title'             => 'Pendaftaran Siswa (PPDB)',
                 'breadcrumb'        => 'Pendaftaran Siswa (PPDB)',
-                'profils'           =>  Profil::all(),
-                'programs'          =>  ProgramKeahlian::all(),
-                'sambutan'          =>  SambutanKepalaSekolah::firstOrFail(),
-                'syarat'            =>  SyaratPendaftaran::firstOrFail(),
-                'fasilitas'         =>  FasilitasSingkat::all(),
-                'brosur'            =>  Brosur::all(),
-                'agama'             =>  $agama,
-                'penghasilan_ortu'  =>  $penghasilan_ortu,
+                'profils'           => $profils,
+                'programs'          => $programs,
+                'sambutan'          => $sambutan,
+                'syarat'            => $syarat,
+                'fasilitas'         => $fasilitas,
+                'brosur'            => $brosur,
+                'agama'             => $agama,
+                'penghasilan_ortu'  => $penghasilan_ortu,
             ]);
         } else {
+            try {
+                $profils = Profil::all();
+                $programs = ProgramKeahlian::all();
+                $sambutan = SambutanKepalaSekolah::firstOrFail();
+                $syarat = SyaratPendaftaran::firstOrFail();
+                $fasilitas = FasilitasSingkat::all();
+                $brosur = Brosur::all();
+            } catch (\Exception $e) {
+                Log::error('Error fetching data: ' . $e->getMessage());
+                dd('Error fetching data: ' . $e->getMessage());
+            }
+
             return view('home.daftar', [
                 'title'             => 'Pendaftaran Siswa (PPDB)',
                 'breadcrumb'        => 'Pendaftaran Siswa (PPDB)',
-                'profils'           =>  Profil::all(),
-                'programs'          =>  ProgramKeahlian::all(),
-                'sambutan'          =>  SambutanKepalaSekolah::firstOrFail(),
-                'syarat'            =>  SyaratPendaftaran::firstOrFail(),
-                'fasilitas'         =>  FasilitasSingkat::all(),
-                'brosur'            =>  Brosur::all(),
+                'profils'           => $profils,
+                'programs'          => $programs,
+                'sambutan'          => $sambutan,
+                'syarat'            => $syarat,
+                'fasilitas'         => $fasilitas,
+                'brosur'            => $brosur,
             ]);
         }
     }
