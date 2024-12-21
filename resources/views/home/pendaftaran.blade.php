@@ -30,7 +30,7 @@
             </div>
         </div>
         <div class="row mt-4">
-            <div class="col-md-9">
+            <div class="col-md-9 bg-white p-2">
                 <span data-aos="fade-down">
                     <div class="row">
                         <div class="col-12">
