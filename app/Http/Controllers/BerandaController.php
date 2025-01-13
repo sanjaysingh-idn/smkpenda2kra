@@ -114,6 +114,7 @@ class BerandaController extends Controller
 
     public function show_berita_detail($slug)
     {
+        // dd($slug);
         $berita = Berita::where('slug', $slug)->firstOrFail();
 
         return view('home.berita_detail', [

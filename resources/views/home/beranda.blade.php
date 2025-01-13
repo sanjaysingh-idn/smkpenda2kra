@@ -24,7 +24,7 @@
 				<div class="col-lg-4 mt-1" data-aos="fade-in">
 					<div class="text-center mb-3">
 						<h4>{{ $sambutan->kepala_sekolah }}</h4>
-						<small>Kepala Sekolah {{ $title }}</small>
+						<small class="text-black">Kepala Sekolah {{ $title }}</small>
 					</div>
 					<div class="d-flex align-items-center justify-content-start">
 						<img src="{{ asset('storage/' . $sambutan->foto) }}" alt="{{ $sambutan->kepala_sekolah }}"
@@ -34,7 +34,7 @@
 				</div>
 				<div class="col-lg-6" data-aos="fade-in">
 					<div class="row">
-						<div class="col-12">
+						<div class="col-12 text-black">
 							<div class="info-box">
 								<div class="ms-4" style="text-align: justify;">
 									{!! $sambutan->desc !!}
@@ -59,7 +59,7 @@
 								<div class="col-12">
 									<div class="intro" data-aos="fade-down">
 										<h1>Program Keahlian</h1>
-										<p class="mx-auto">Kembangkan keahlian Anda dengan program kami yang unggul.</p>
+										<p class="mx-auto text-black">Kembangkan keahlian Anda dengan program kami yang unggul.</p>
 									</div>
 								</div>
 							</div>
@@ -72,7 +72,7 @@
 													class="text-citrine"><strong>{{ $item->singkatan }}</strong></span></a>
 											<div class="content">
 												<h5>{{ $item->nama_program }}</h5>
-												<p>
+												<p class="text-black">
 													{{ Str::limit(strip_tags($item->desc), 200) }}
 
 												</p>
