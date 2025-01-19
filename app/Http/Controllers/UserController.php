@@ -10,9 +10,11 @@ class UserController extends Controller
 {
     public function index()
     {
+
         return view('admin.user', [
-            'title'     => 'User',
-            'user'      => User::all(),
+            'title'     => 'User Admin',
+            'userAdmin' => User::where('role', 'admin')->get(),
+            'userSiswa' => User::where('role', 'siswa')->get(),
         ]);
     }
 

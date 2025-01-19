@@ -16,7 +16,7 @@
 				</div>
 			</div>
 			<div class="row mt-4">
-				<div class="col-md-9">
+				<div class="col-md-12">
 					<span data-aos="fade-down">
 						<div class="row">
 							@foreach ($berita as $item)
@@ -46,7 +46,7 @@
 						</div>
 					</span>
 				</div>
-				<div class="col-md-3">
+				{{-- <div class="col-md-3">
 					<span data-aos="fade-down">
 						<div class="row">
 							@foreach ($brosur as $item)
@@ -60,7 +60,7 @@
 							@endforeach
 						</div>
 					</span>
-				</div>
+				</div> --}}
 			</div>
 		</div>
 	</section>

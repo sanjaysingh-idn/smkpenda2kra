@@ -4,7 +4,7 @@
 	<section id="about">
 		<div class="container">
 			<div class="row mt-4">
-				<div class="col-md-9 mb-5 bg-white p-5">
+				<div class="col-md-12 mb-5 bg-white p-5">
 					<!-- Back Button -->
 					<div class="mb-4">
 						<a href="{{ url()->previous() }}" class="btn btn-secondary">Kembali</a>
@@ -28,7 +28,7 @@
 					</span>
 
 				</div>
-				<div class="col-md-3">
+				{{-- <div class="col-md-3">
 					<span data-aos="fade-down">
 						<div class="row">
 							@foreach ($brosur as $item)
@@ -42,7 +42,7 @@
 							@endforeach
 						</div>
 					</span>
-				</div>
+				</div> --}}
 			</div>
 		</div>
 	</section>

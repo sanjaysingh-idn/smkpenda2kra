@@ -73,12 +73,12 @@
 				<div>Fasilitas Beranda</div>
 			</a>
 		</li> --}}
-		<li class="menu-item {{ request()->is('admin/brosur*') ? 'active' : '' }}">
+		{{-- <li class="menu-item {{ request()->is('admin/brosur*') ? 'active' : '' }}">
 			<a href="{{ url('admin/brosur') }}" class="menu-link">
 				<i class='menu-icon tf-icons bx bx-file'></i>
 				<div>Brosur</div>
 			</a>
-		</li>
+		</li> --}}
 		<li class="menu-item {{ request()->is('admin/galeri*') ? 'active' : '' }}">
 			<a href="{{ url('admin/galeri') }}" class="menu-link">
 				<i class='menu-icon tf-icons bx bx-images'></i>
@@ -103,7 +103,7 @@
 				<div>Data Siswa</div>
 			</a>
 		</li>
-		<li class="menu-item {{ request()->is('admin/siswa*') ? 'active' : '' }}">
+		<li class="menu-item {{ request()->is('admin/slider*') ? 'active' : '' }}">
 			<a href="{{ url('admin/slider') }}" class="menu-link">
 				<i class='menu-icon tf-icons bx bx-slider'></i>
 				<div>Slider</div>
@@ -116,7 +116,7 @@
 		<li class="menu-item {{ request()->is('admin/user') ? 'active' : '' }}">
 			<a href="{{ url('admin/user') }}" class="menu-link">
 				<i class='menu-icon tf-icons bx bx-user-circle'></i>
-				<div>User</div>
+				<div>User Admin</div>
 			</a>
 		</li>
 		<hr>
