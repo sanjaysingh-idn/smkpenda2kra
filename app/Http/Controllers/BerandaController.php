@@ -99,7 +99,9 @@ class BerandaController extends Controller
 
     public function show_berita()
     {
-        $berita = Berita::where('status', 'publish')->get();
+        $berita = Berita::where('status', 'publish')
+            ->orderBy('created_at', 'desc')
+            ->get();
 
         return view('home.berita', [
             'title'         => 'Berita',
