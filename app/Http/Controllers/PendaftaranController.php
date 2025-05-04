@@ -40,10 +40,31 @@ class PendaftaranController extends Controller
             'no_telp_ortu'  => 'required|numeric',
             'nisn'          => 'required|numeric',
             'nik'           => 'required|numeric',
-            'pas_foto'      => 'required|image|mimes:jpg,jpeg,png,bmp,gif,svg,webp|max:2048',
+            // File validations
+            'pas_foto'         => 'required|image|mimes:jpg,jpeg,png,bmp,gif,svg,webp|max:2048',
+            'scan_raport'      => 'required|file|mimes:jpg,jpeg,png,pdf|max:2048',
+            'scan_akta'        => 'required|file|mimes:jpg,jpeg,png,pdf|max:2048',
+            'scan_kk'          => 'required|file|mimes:jpg,jpeg,png,pdf|max:2048',
+            'scan_piagam1'     => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
+            'scan_piagam2'     => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
+            'scan_piagam3'     => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
         ]);
 
-        $attr['pas_foto']   = $request->file('pas_foto')->store('pendaftar');
+        $attr['pas_foto']      = $request->file('pas_foto')->store('pendaftar', 'public');
+        $attr['scan_raport']   = $request->file('scan_raport')->store('pendaftar', 'public');
+        $attr['scan_akta']     = $request->file('scan_akta')->store('pendaftar', 'public');
+        $attr['scan_kk']       = $request->file('scan_kk')->store('pendaftar', 'public');
+
+        // Hanya simpan jika ada
+        if ($request->hasFile('scan_piagam1')) {
+            $attr['scan_piagam1'] = $request->file('scan_piagam1')->store('pendaftar', 'public');
+        }
+        if ($request->hasFile('scan_piagam2')) {
+            $attr['scan_piagam2'] = $request->file('scan_piagam2')->store('pendaftar', 'public');
+        }
+        if ($request->hasFile('scan_piagam3')) {
+            $attr['scan_piagam3'] = $request->file('scan_piagam3')->store('pendaftar', 'public');
+        }
 
         $pendaftaran = Pendaftaran::create($attr);
 

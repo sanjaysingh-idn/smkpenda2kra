@@ -35,6 +35,12 @@ class CreatePendaftaransTable extends Migration
             $table->string('pekerjaan_ibu');
             $table->enum('penghasilan_ortu', ['Rp. 1.000.000 - Rp. 2.000.000', 'Rp. 2.000.000 - Rp. 3.000.000', 'Rp. 3.000.000 - Rp. 4.000.000', 'Rp. 4.000.000 - Rp. 5.000.000', '> Rp. 5.000.000']);
             $table->string('pas_foto');
+            $table->string('scan_raport');
+            $table->string('scan_akta');
+            $table->string('scan_kk');
+            $table->string('scan_piagam1')->nullable();
+            $table->string('scan_piagam3')->nullable();
+            $table->string('scan_piagam2')->nullable();
             $table->timestamps();
         });
     }
