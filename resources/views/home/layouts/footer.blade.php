@@ -15,6 +15,10 @@
 		</div>
 	</div>
 	<div class="footer-bottom text-center">
-		<p class="mb-0">Copyright SMK Penda 2 Karanganyar 2023. All rights Reserved</p>
+		<p class="mb-0">Copyright SMK Penda 2 Karanganyar
+			<script>
+				document.write(new Date().getFullYear());
+			</script>. All rights Reserved
+		</p>
 	</div>
 </footer>

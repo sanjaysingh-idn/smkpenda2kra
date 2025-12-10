@@ -1,7 +1,6 @@
 @extends('home.layouts.app')
 
 @section('content')
-
 	<section id="about">
 		<div class="container">
 			@if ($errors->any())
@@ -35,22 +34,30 @@
 					<span data-aos="fade-down">
 						<div class="row">
 							<div class="col-12">
-								<div class="syarat">
-									<h3>Syarat Pendaftaran Siswa Baru</h3>
-									<small>Status PPDB : <span class="badge rounded-pill bg-primary">{{ $syarat->status }}</span></small>
-									<br>
-									<div class="text">
-										{!! $syarat->content !!}
+								@if ($syarat->status === 'dibuka')
+									<div class="syarat">
+										<h3>Syarat Pendaftaran Siswa Baru</h3>
+										<small>Status PPDB : <span class="badge rounded-pill bg-primary">{{ $syarat->status }}</span></small>
+										<br>
+										<div class="text">
+											{!! $syarat->content !!}
+										</div>
 									</div>
-								</div>
+								@else
+									<small>Status PPDB : <span class="badge rounded-pill bg-primary">{{ $syarat->status }}</span></small>
+									<div class="alert alert-warning text-center p-4 mt-4" style="font-size: 1.3rem; font-weight: 600;">
+										Mohon maaf, Penerimaan Peserta Didik Baru (PPDB) saat ini ditutup.
+										<br>Silakan menunggu informasi resmi selanjutnya.
+									</div>
+								@endif
 							</div>
 							<hr>
 							<div class="col-12">
 								@if (!Auth::user()->id_ppdb)
-									<h3>Formulir Pendaftaran</h3>
-									<hr>
-									<div class="form">
-										@if ($syarat->status === 'dibuka')
+									@if ($syarat->status === 'dibuka')
+										<h3>Formulir Pendaftaran</h3>
+										<hr>
+										<div class="form">
 											<form method="post" action="{{ route('pendaftaran-siswa.store') }}" enctype="multipart/form-data">
 												@csrf
 												<div class="row">
@@ -344,17 +351,17 @@
 
 													<button type="submit" class="btn btn-primary"><i class="bx bx-save"></i> Daftar Siswa</button>
 											</form>
-										@endif
-									</div>
-								@else
-									<p>Anda sudah mendaftar, silahkan ke halaman <a href="{{ route('panel-siswa', ['id' => Auth::id()]) }}">panel
-											siswa</a> untuk cek status pendaftaran</p>
-								@endif
+									@endif
 							</div>
+						@else
+							<p>Anda sudah mendaftar, silahkan ke halaman <a href="{{ route('panel-siswa', ['id' => Auth::id()]) }}">panel
+									siswa</a> untuk cek status pendaftaran</p>
+							@endif
 						</div>
-					</span>
 				</div>
-				{{-- <div class="col-md-3">
+				</span>
+			</div>
+			{{-- <div class="col-md-3">
                 <span data-aos="fade-down">
                     <div class="row">
                         @if ($brosur)
@@ -370,7 +377,7 @@
                     </div>
                 </span>
             </div> --}}
-			</div>
+		</div>
 		</div>
 	</section>
 @endsection
